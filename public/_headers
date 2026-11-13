@@ -7,3 +7,15 @@
 
 /search-index.json
   Cache-Control: public, max-age=300
+
+/theme.css
+  Cache-Control: no-store
+
+/assets/site-header.css
+  Cache-Control: public, max-age=300
+
+/assets/site.css
+  Cache-Control: public, max-age=300
+
+/assets/base.css
+  Cache-Control: public, max-age=300
