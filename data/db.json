@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "settings": {
+    "siteName": "开源栈",
+    "siteSubtitle": "开源工具 · 可复核教程",
+    "logoText": "开",
+    "logoImage": "",
+    "description": "只收录开源项目的工具手册：从安装、构建到合规使用，写清许可证、适用边界与维护方式。",
+    "accent": "#2f6b5e",
+    "contact": "",
+    "footer": "本站只收录开源项目；项目名称、商标与代码版权归各自作者所有。",
+    "postsPerPage": 8,
+    "about": "## 关于开源栈\n\n开源栈只收录可验证的开源项目教程。这里不追逐“免费神器”清单，而是把安装、构建、许可证和使用边界写清楚。\n\n### 收录标准\n\n- 有公开源码仓库和明确许可证。\n- 安装、构建或使用步骤能通过官方文档复核。\n- 教程区分项目本身、第三方插件与内容授权。\n- 对商业使用、二次分发和商标使用给出边界说明。\n\n### 不收录\n\n- 破解、绕过付费、未授权音源或影视资源。\n- 没有公开源码、没有可验证许可证的项目。\n- 只提供二次打包安装包、没有官方发布渠道的项目。\n- 用“免费”“无广告”掩盖版权风险的内容。\n\n> 开源不等于免费使用一切内容。代码有许可证，音乐、图片、视频、商标和插件数据也有各自的授权。"
+  },
+  "categories": [
+    {
+      "id": "cat-audio",
+      "name": "音频工具",
+      "slug": "audio-tools",
+      "description": "开源播放器、音频编辑与声音素材工具",
+      "order": 0
+    },
+    {
+      "id": "cat-open-source",
+      "name": "开源项目",
+      "slug": "open-source",
+      "description": "代码仓库、项目边界与许可证观察",
+      "order": 1
+    },
+    {
+      "id": "cat-deploy",
+      "name": "部署与维护",
+      "slug": "deploy",
+      "description": "本地运行、构建、升级与备份",
+      "order": 2
+    },
+    {
+      "id": "cat-license",
+      "name": "许可与合规",
+      "slug": "license",
+      "description": "开源协议、内容授权与再分发说明",
+      "order": 3
+    }
+  ],
+  "articles": [
+    {
+      "id": "post-musicfree-001",
+      "slug": "musicfree-open-source-player-tutorial",
+      "title": "MusicFree 教程：安装、插件配置与合规资源清单",
+      "excerpt": "MusicFree 是采用 AGPL-3.0 的插件化开源音乐播放器。本文整理安装、插件边界与合规注意事项，并提供本站自制的教程、配置与清单。",
+      "content": "## 项目信息\n\nMusicFree 是开发者 maotoumao 维护的插件化开源音乐播放器，使用 TypeScript 与 React Native 开发，项目采用 **AGPL-3.0** 许可证。\n\n- 项目名称：MusicFree\n- 官方站点：https://musicfree.catcat.work\n- 许可证：GNU Affero General Public License v3.0\n- 核验日期：2026-11-13\n- 核验时 package.json 版本：0.6.2\n\n官方 README 说明，MusicFree 本身只是一个播放器，**不集成任何平台音源**；搜索、播放、歌单导入等功能都需要通过插件完成。项目目前只支持 Android 和 HarmonyOS，桌面版是另一个独立仓库。\n\n> 这篇教程只使用官方文档、官方 Release 与合法授权的音乐来源，不提供破解、付费绕过或第三方插件源。\n\n## 适用边界\n\n**适合：**\n\n- 想体验插件化播放器架构的 Android / HarmonyOS 用户\n- 愿意阅读插件协议、自己评估插件安全性的技术用户\n- 希望从源码构建、研究 React Native 项目结构的学习者\n\n**不适合：**\n\n- 想直接获得某个平台会员歌曲或付费内容的人\n- 想安装来源不明的插件、绕过平台限制的人\n- 需要桌面版但不愿意使用独立桌面项目的用户\n\n## 方式一：从官方 Releases 安装\n\n这是普通用户最短的路径。\n\n1. 打开 [MusicFree Releases](https://github.com/maotoumao/MusicFree/releases)。\n2. 根据页面说明下载与设备匹配的安装包。\n3. 安装后先不要寻找所谓“增强版”或“破解版”；官方 README 明确提醒，部分应用市场里的同名软件与项目无关。\n4. 如果只想了解播放器本身，可以跳过插件安装，先熟悉界面、主题与本地设置。\n\n官方 README 还特别说明：如果你在其他平台看到收费版、无广告版或破解版，它们并不是这个开源项目的官方发行版本。\n\n## 方式二：从官方源码包运行\n\n从官方发布页下载源码归档并解压到本地（本文不展示 GitHub 项目主页地址）。源码构建要求 Node.js **18 或更高版本**；Android 构建还需要 JDK、Android SDK 与可用的 Gradle 环境。\n\n进入解压后的项目目录，安装依赖：\n\n```bash\ncd MusicFree\nnpm install\n```\n\n先启动 React Native 的 Metro 服务：\n\n```bash\nnpm start\n```\n\n另开一个终端，在模拟器或已连接的 Android 设备上运行调试版本：\n\n```bash\nnpm run android\n```\n\n准备构建发布包时，仓库提供了：\n\n```bash\nnpm run build-android\n```\n\nGradle 的具体产物路径与签名配置由本地 Android 工程决定，请以构建输出和官方说明为准。仓库中的 build-android 脚本使用 Windows 路径；macOS/Linux 可进入 android 目录执行 ./gradlew assembleRelease。HarmonyOS 与桌面端请参考对应项目的官方发布渠道。\n\n## 插件机制怎么理解\n\nMusicFree 的插件本质上是一个满足插件协议的 CommonJS 模块。插件负责搜索、播放、专辑、作者、歌单与歌词等数据逻辑，播放器负责分页、缓存、界面和播放控制。\n\n官方文档把这条边界说得很清楚：**插件以及插件产生的数据与播放器本身无关**。这意味着：\n\n- 插件的安全性需要你自己评估，不要安装来路不明的文件。\n- 插件返回的音乐、歌词、封面等内容的授权状态，需要你自行确认。\n- 插件失效、接口变化或数据不合规，不能归因于播放器项目本身。\n\n官方插件开发文档：https://musicfree.catcat.work/plugin/introduction.html\n\n官方移动端插件安装说明：https://musicfree.catcat.work/usage/mobile/install-plugin.html\n\n### 安装插件的操作路径\n\n1. 打开 MusicFree 侧边栏。\n2. 进入「设置」→「插件设置」。\n3. 按官方文档选择本地插件文件或网络插件描述文件。\n4. 安装前确认插件来源、代码内容和网络请求范围。\n5. 安装完成后回到搜索页，只有在插件配置正确时才会返回结果。\n\n本文不提供任何第三方插件源地址。官方示例插件仓库只用于说明插件协议，不代表你获得了其中任何音乐内容的授权。\n\n## 合规使用清单\n\n- **只从官方站点与 Releases 获取软件。** 不下载二次打包的“收费版”“破解版”。\n- **不绕过付费与会员限制。** 项目 README 明确表示不提倡、也不会提供破解行为。\n- **不传播无权使用的音频、歌词与封面。** 插件返回的数据是否可保存、复制或再分发，取决于内容本身的授权。\n- **保留出处。** 打包或二次分发时，按项目要求保留项目名称、源码出处与许可证信息。\n- **遵守 AGPL-3.0。** 修改并通过网络提供服务或分发修改版时，需要按许可证提供对应源码与许可证信息。\n- **尊重作者额外说明。** README 还提出不要商业使用、不要以 VIP/破解为噱头宣传；这些项目说明应与许可证一起阅读。\n- **不要冒用项目身份。** 不要用 MusicFree 的名称或 Logo 让用户误以为你的二次分发是官方版本。\n\n> 教程不是授权书。开源许可证解决的是代码使用问题，不自动解决音乐、歌词、封面、商标和插件数据的授权问题。\n\n## 常见问题\n\n**打开后搜索不到歌曲？**\n\nMusicFree 不自带音源。先检查是否安装了插件，以及插件是否仍然可用。不要为了“能搜到更多”而安装来源不明的插件。\n\n**插件安装失败？**\n\n确认插件文件符合官方协议、文件类型与当前版本要求；查看官方插件文档和项目 Issue。插件是第三方代码，安装前应自己审查。\n\n**Windows 或 macOS 能用吗？**\n\n桌面端是独立项目，请从官方站点查看桌面版发布说明与许可证。\n\n**这个项目收费吗？**\n\n项目代码以 AGPL-3.0 开源，官方 README 将其描述为免费、无广告的播放器。任何收费的“官方版”都需要先核实来源，不要因为名称相同就默认它是官方发行。\n\n## 参考链接\n\n- [MusicFree Releases](https://github.com/maotoumao/MusicFree/releases)\n- [MusicFree 官方站点](https://musicfree.catcat.work)\n- [GNU AGPL-3.0 许可证文本](https://www.gnu.org/licenses/agpl-3.0.html)\n\n本文为技术整理，不构成法律意见；许可证与项目说明发生冲突时，以官方当时有效的 LICENSE 与 README 为准。",
+      "categoryId": "cat-audio",
+      "tags": [
+        "MusicFree",
+        "AGPL-3.0",
+        "开源音乐播放器",
+        "Android"
+      ],
+      "cover": "",
+      "resources": {
+        "quarkUrl": "",
+        "quarkCode": "",
+        "officialUrl": "https://musicfree.catcat.work/",
+        "releaseUrl": "https://github.com/maotoumao/MusicFree/releases",
+        "note": "网盘包含：安装与插件配置教程 PDF、推荐设置、合规使用清单。安装包不放入网盘，请使用官方 Release。"
+      },
+      "status": "published",
+      "pinned": true,
+      "createdAt": "2026-11-13T02:00:00.000Z",
+      "updatedAt": "2026-11-12T17:40:04.905Z",
+      "publishedAt": "2026-11-13T02:00:00.000Z"
+    }
+  ],
+  "media": []
+}
