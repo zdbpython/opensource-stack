@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.env
+data/auth.json
+data/initial-admin-password.txt
+data/first-run-admin.txt
+*.tmp
