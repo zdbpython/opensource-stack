@@ -62,7 +62,7 @@ function notFound(req, res) {
 
 function themeCss() {
   const accent = validColor(settings().accent);
-  return `:root{--accent:${accent};--accent-dark:${shade(accent,-18)};--accent-soft:${shade(accent,72)};--accent-glow:${shade(accent,88)}}`;
+  return `:root{--accent:${accent};--accent-dark:${shade(accent,-28)};--accent-soft:${shade(accent,-68)};--accent-glow:${shade(accent,-82)}}`;
 }
 
 function shade(hex, amount) {
